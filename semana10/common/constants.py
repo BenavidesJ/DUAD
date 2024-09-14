@@ -1,0 +1,1 @@
+subjects = ['Español', 'Inglés', 'Matemática', 'Ciencias']
