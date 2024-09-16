@@ -1,0 +1,10 @@
+__pycache__/
+*.log
+*.csv
+
+# Entorno
+env/
+venv/
+
+.DS_Store
+Thumbs.db
