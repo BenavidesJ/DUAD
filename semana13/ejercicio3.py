@@ -33,6 +33,6 @@ carlos = User(date(2018,8,30))
 def access_to_pub(user: User):
     print(f'Welcome to the pub!!! you are {user.age} old!')
     
-access_to_pub(juan)
-access_to_pub(maria)
-access_to_pub(carlos)
+access_to_pub(juan) # este es mayor de edad
+access_to_pub(maria) # este es mayor de edad
+access_to_pub(carlos) # este es menor de edad y debe fallar
