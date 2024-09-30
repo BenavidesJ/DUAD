@@ -1,4 +1,4 @@
-from bubble_sort import bubble_sort
+from semana16.bubble_sort import bubble_sort
 import pytest
 
 def test_small_list():
