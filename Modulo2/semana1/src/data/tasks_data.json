@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "title": "Hacer ejercicio",
+    "description": "Entrenar karate",
+    "status": "Completa"
+  },
+  {
+    "id": 2,
+    "title": "Estudiar para el examen",
+    "description": "Estudiar para JLPT N3",
+    "status": "Completa"
+  },
+  {
+    "id": 3,
+    "title": "Cocinar",
+    "description": "Hacer el almuerzo",
+    "status": "Pendiente"
+  },
+  {
+    "id": 4,
+    "title": "Cocinar",
+    "description": "Hacer el almuerzo",
+    "status": "Pendiente"
+  },
+  {
+    "id": 6,
+    "title": "Nueva tarea",
+    "description": "descripcion de la tarea",
+    "status": "Completa"
+  }
+]

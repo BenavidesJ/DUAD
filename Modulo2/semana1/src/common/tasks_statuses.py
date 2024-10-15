@@ -1,0 +1,1 @@
+tasks_statuses = ("Pendiente", "En progreso", "Completa")
