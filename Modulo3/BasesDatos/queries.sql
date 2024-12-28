@@ -143,6 +143,11 @@ SELECT *
 FROM Factura
 WHERE Telefono_Comprador = '3001234567';
 
+-- 7 Obtener las facturas ordenadas por el monto de forma descendente
+SELECT *
+FROM Factura
+ORDER BY Monto_Total DESC;
+
 -- 7 Obtener una factura por su codigo o numero de factura
 SELECT *
 FROM Factura
