@@ -1,7 +1,7 @@
 from db_client import DBClient
 from flask import Flask, request, jsonify
 from src.queries import queries
-from src.utils import build_filter_query
+from src.utils.build_query_filter import build_filter_query
 
 app = Flask(__name__)
 db_client = DBClient('lyfter_car_rental','postgres', 1234, 'localhost')
