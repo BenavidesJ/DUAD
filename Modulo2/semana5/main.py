@@ -6,7 +6,6 @@ from src.utils.build_query_filter import build_filter_query
 app = Flask(__name__)
 db_client = DBClient('lyfter_car_rental','postgres', 1234, 'localhost')
 
-# Crear un usuario nuevo
 @app.route('/users', methods=['POST'])
 def create_user():
     try:
@@ -25,8 +24,7 @@ def create_user():
     except Exception as ex:
         return jsonify({"error": str(ex)}), 500
     
-    
-# Crear un automóvil nuevo
+
 @app.route("/cars", methods=["POST"])
 def create_car():
     try:
@@ -43,7 +41,6 @@ def create_car():
         return jsonify({"error": str(ex)}), 500
     
     
-# Crear un alquiler nuevo
 @app.route("/rentals", methods=["POST"])
 def create_rental():
     try:
@@ -51,17 +48,14 @@ def create_rental():
         user_id = body_data["user_id"]
         car_id = body_data["car_id"]
         rental_date = body_data["rental_date"]
-        return_date = body_data["return_date"]
-        status = body_data["status"]
+        rental_status = body_data["rental_status"]
 
-        db_client.execute_query(queries.create_rental, user_id, car_id, rental_date, return_date, status)
+        db_client.execute_query(queries.create_rental, user_id, car_id, rental_date, rental_status)
         return jsonify({"message": "Rental created"}), 201
 
     except Exception as ex:
         return jsonify({"error": str(ex)}), 500
     
-    
-# Cambiar el estado de un automóvil
 @app.route("/cars/<int:car_id>/status", methods=["PATCH"])
 def update_car_status(car_id):
     try:
@@ -79,7 +73,6 @@ def update_car_status(car_id):
         return jsonify({"error": str(ex)}), 500
     
 
-# Cambiar el estado de un usuario
 @app.route("/users/<int:user_id>/status", methods=["PATCH"])
 def update_user_status(user_id):
     try:
@@ -97,7 +90,6 @@ def update_user_status(user_id):
         return jsonify({"error": str(ex)}), 500
 
 
-# Completar un alquiler
 @app.route("/rentals/<int:rental_id>/complete", methods=["PATCH"])
 def complete_rental(rental_id):
     try:   
@@ -112,7 +104,6 @@ def complete_rental(rental_id):
         return jsonify({"error": str(ex)}), 500
 
 
-# Cambiar el estado de un alquiler
 @app.route("/rentals/<int:rental_id>/status", methods=["PATCH"])
 def update_rental_status(rental_id):
     try:
@@ -130,9 +121,8 @@ def update_rental_status(rental_id):
         return jsonify({"error": str(ex)}), 500
 
 
-# Flagear un usuario como moroso
 @app.route("/users/<int:user_id>/late_payment", methods=["PATCH"])
-def flag_user_moroso(user_id):
+def flag_user_late_payment(user_id):
     try:
         rows_updated = db_client.execute_query(queries.flag_user_late_payment, user_id)
 
@@ -144,7 +134,7 @@ def flag_user_moroso(user_id):
     except Exception as ex:
         return jsonify({"error": str(ex)}), 500
     
-# Listar usuarios
+    
 @app.route("/users", methods=["GET"])
 def list_users():
     try:
@@ -160,7 +150,6 @@ def list_users():
         return jsonify({"error": str(ex)}), 500
 
 
-# Listar todos los carros
 @app.route("/cars", methods=["GET"])
 def list_cars():
     try:
@@ -176,7 +165,6 @@ def list_cars():
         return jsonify({"error": str(ex)}), 500
 
 
-# Listar todos los alquileres
 @app.route("/rentals", methods=["GET"])
 def list_rentals():
     try:
